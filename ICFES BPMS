@@ -1,0 +1,545 @@
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+
+Manual oficial del sistema HyperGenIA BPMS-SGDEA del ICFES. Version 6.0 - Abril 2026. Fuente de conocimiento para el Asistente BPMS ICFES.
+
+## HyperGenIA BPMS-SGDEA es el sistema de gestion de procesos y documentos del ICFES (Instituto Colombiano para la Evaluacion de la Educacion). Permite gestionar PQRSDF (Peticiones, Quejas, Reclamos, Sugerencias, Denuncias y Felicitaciones), expedientes documentales, tareas, flujos de aprobacion y comunicaciones oficiales. Acceso: https://bpms.icfes.gov.co
+
+## INICIO: Panel principal con resumen de tareas pendientes, casos vencidos, notificaciones y accesos rapidos. CASOS: Modulo para crear, consultar y gestionar PQRSDF y expedientes. Permite filtrar por estado, radicado, fecha, tipo y responsable. TAREAS: Lista de actividades pendientes asignadas al usuario. Permite filtrar, ordenar, reasignar y gestionar plazos SLA. SEDE ELECTRONICA: Canal de recepcion de PQRSDF desde ciudadanos externos. Formularios de radicacion en linea. GESTION DOCUMENTAL: Administracion de expedientes y documentos oficiales. Carga de archivos, organizacion por tipologia documental y firma electronica. ANALITICA: Reportes y dashboards de gestion. Estadisticas de casos por tipo, tiempo de respuesta, SLA, dependencia y usuario. STUDIO: Modulo de administracion avanzada para configurar procesos, formularios, flujos de trabajo, tipologias y reglas. Solo acceso administrador. ADMINISTRACION: Gestion de usuarios, roles, permisos, sedes y configuraciones generales del sistema.
+
+## ETAPA 1 - Recepcion y Clasificacion: Abrir tarea > leer adjuntos > seleccionar tipo (peticion, queja, reclamo, sugerencia, denuncia, felicitacion) > asignar tema y categoria > verificar datos de contacto del ciudadano > confirmar competencia ICFES > identificar duplicados > guardar. SLA: 8 horas habiles. Verde = en tiempo. Amarillo = 70% SLA consumido. Rojo = vencido. Tarea vencida sigue activa y se puede gestionar.
+
+ETAPA 2 - Asignacion y Gestion: Confirmar competencia > asignar gestor responsable > analizar el caso > solicitar insumos con comentario registrado > consolidar respuesta > actualizar avances > validar tiempos SLA. Si no es competencia ICFES: redirigir a entidad correspondiente e informar al ciudadano.
+
+ETAPA 3 - Respuesta al Ciudadano: Confirmar respuesta completa > verificar radicado de salida > preparar mensaje con plantilla institucional > adjuntar PDF de respuesta > enviar por correo al ciudadano > validar confirmacion de envio > registrar trazabilidad en el sistema. Correo destinatario: debe estar registrado en el formulario de radicacion. Cuenta de cobro: formato ICFES/numero/anio.
+
+ETAPA 4 - Cierre: Verificar evidencia de envio > confirmar documento en expediente > revisar clasificacion final > validar que no hay tareas pendientes > registrar comentario de cierre > ejecutar cierre en el sistema > verificar estado Finalizado. IMPORTANTE: Finalizar cierra el caso inmediatamente (no reabre facil). Guardar solo guarda avances parciales sin cerrar.
+
+## Como subir un documento al expediente: Abrir el caso > ir a pestana Documentos o Expediente > hacer clic en Adjuntar o Subir archivo > seleccionar el archivo (PDF, Word, Excel, imagen) > elegir tipologia documental del listado > confirmar. Limite de archivo: 10 MB por archivo. Formatos aceptados: PDF, DOCX, XLSX, JPG, PNG. Si el documento no sube: verificar que sea menor a 10MB, verificar que el campo de tipologia este seleccionado en Studio > Formulario. Para buscar un caso: usar nombre exacto con mayusculas y tildes como aparece en el formulario. Los campos de busqueda son sensibles al texto exacto. Radicacion de correspondencia interna: verificar que el destinatario correcto este registrado antes de enviar. Respuesta externa: adjuntar documento PDF firmado antes de enviar al ciudadano. Tipologia sin autocompletar: hacer clic en el campo + esperar cursor activo + escribir despacio.
+
+## USUARIO BASICO: Ver y gestionar tareas asignadas, consultar casos propios, subir documentos, registrar comentarios y avances, enviar respuestas al ciudadano. ENLACE DOCUMENTAL: Adicionalmente puede gestionar expedientes de su dependencia, clasificar documentos, validar tipologias. FIRMANTE: Puede firmar electronicamente documentos oficiales en el sistema. LIDER DE PROCESO: Puede reasignar tareas entre usuarios de su dependencia, ver todos los casos del area, generar reportes. ADMINISTRADOR: Acceso completo al sistema incluyendo Studio (configurar procesos, formularios, flujos), Administracion (usuarios, roles, permisos, sedes), reportes globales y configuracion de SLA. REASIGNACION DE TAREAS: Solo el lider del proceso o administrador puede reasignar. Ruta: Tareas > seleccionar tarea > boton Reasignar > buscar usuario destino > confirmar. Reasignacion masiva: seleccionar multiples tareas con checkbox > Reasignar seleccionadas.
+
+## Studio es el modulo de configuracion avanzada del BPMS. Solo accesible para administradores. Funciones principales: PROCESOS: Crear y modificar flujos de trabajo, definir etapas, condiciones y transiciones. FORMULARIOS: Disenar campos del formulario de radicacion, configurar tipologias documentales, campos obligatorios. TAREAS: Configurar tiempos SLA por tipo de proceso, asignar responsables por defecto, configurar escalamientos. ERRORES: Revisar errores de configuracion en Studio > proceso > Errores. Verificar rol activo del usuario siguiente en el flujo. VERSIONES: Cada proceso tiene versiones. Al modificar un proceso se crea una nueva version. Los casos activos usan la version con la que fueron creados. ANULAR PROCESO: Solo administrador puede anular un proceso activo. Ruta: Studio > proceso > Anular. Requiere justificacion. STICKER SIN ZEBRA: Si la impresora Zebra no esta disponible, el sticker de radicacion puede imprimirse desde la opcion de impresion del navegador en formato PDF.
+
+## No aparece proceso: verificar rol en Administracion > Usuarios y que el proceso este desplegado en Studio. Tarea no visible: limpiar filtros en Tareas, cerrar sesion y volver a ingresar. Proceso no avanza: ir a Studio > proceso > Errores, verificar rol activo del usuario siguiente en el flujo. Documento no sube: PDF debe ser menor a 10MB, verificar configuracion del campo de tipologia en Studio > Formulario. Sin permisos: cerrar sesion y volver a ingresar. Si persiste: verificar roles en Administracion > Usuarios. SLA vencido dentro de horario: ir a Studio > tarea > Configuracion > verificar y corregir el calendario ICFES asignado. No encuentro caso: ir a Analitica > quitar todos los filtros > buscar por radicado o usuario. Busqueda no funciona: usar nombre exacto con mayusculas y tildes tal como aparece en el formulario. Error envio correo: verificar que el correo destinatario este correctamente registrado en el caso. Cuenta de cobro: usar formato ICFES/numero/anio. Campo busqueda vacio: el campo requiere texto exacto incluyendo tildes y mayusculas. Finalizar vs Guardar: Finalizar cierra el caso inmediatamente sin posibilidad de reabrir facilmente. Guardar solo guarda avances parciales. Tipologia sin autocompletar: hacer clic en el campo + esperar que aparezca el cursor activo + escribir lentamente.
+
+## Error tecnico del sistema: contactar Soporte Tecnico BPMS via Microsoft Teams o correo electronico. Contrasena o acceso bloqueado: contactar Mesa de Ayuda ICFES (ticket TI). Sin responsable para reasignar: contactar al Lider del proceso de la dependencia. Error que requiere proveedor: crear ticket en Tickets_SoporteHyper en OneDrive Soporte HyperGenIA. Sistema caido para todos los usuarios: contactar Mesa de Ayuda TI de forma urgente. Correo Soporte HyperGenIA: soportehyper@icfes.gov.co
+
+## VARIABLES DEL FORMULARIO PQRSDF (Campos Reales del Sistema)
+
+Campos del formulario de radicacion PQRSDF tal como aparecen en el sistema BPMS: Canal de Recepcion (Ventanilla / Portal web / Telefono / Correo), Tipo de Solicitud (1. Peticion / 2. Queja / 3. Reclamo / 4. Sugerencia / 5. Denuncia / 6. Felicitacion), Tipo de Solicitante (Estudiantes o Ciudadano / Entidad / Funcionario), Tipo de Identificacion (Cedula / Cedula de Extranjeria / Pasaporte / NIT / Tarjeta de Identidad), Numero de identificacion, Nombres, Apellidos, Pais, Departamento, Ciudad, Direccion de Correspondencia y Barrio, Correo electronico, Telefono Fijo, Telefono Celular, Texto que resume la solicitud (campo libre), La PQRSDF es para un tercero (SI/NO), Tipo Sector (Peticion / Queja / Reclamo / Sugerencia / Denuncia / Felicitacion), Causal (campo de clasificacion), Tramite / Convocatoria (campo de clasificacion), Linea de Tiempo (Post-Registro / Post-Resultados / Sin Linea de Tiempo), Observaciones (campo libre), Requiere Asignacion por Competencia (SI/NO), Dependencia (si requiere asignacion), Nombre Completo del gestor, Correo Electronico del gestor, Decision (Requiere Respuesta de Primera Mano / Traslado / etc.), Requiere Firma (SI/NO), Respuesta PQRSDF (texto de respuesta al ciudadano), Comentario de Cierre, Requiere Expediente (SI/NO), Tipo de Examen o Encuesta (SABER PRO y TYT / SABER 11 / OTROS SERVICIOS / etc.).
+
+## Causales confirmadas en produccion: CORRECCION EN NUMERO DE DOCUMENTO, RECONOCIMIENTO DE EXAMENES PRESENTADOS EN EL EXTERIOR, MINISTERIO DE EDUCACION NACIONAL. Tramites / Convocatorias confirmados: NUEVAS CONVOCATORIAS, RECONOCIMIENTO DE EXAMENES PRESENTADOS EN EL EXTERIOR, TRASLADO POR COMPETENCIA. Lineas de Tiempo: Post-Registro (proceso activo), Post-Resultados (resultados ya disponibles), Sin Linea de Tiempo (cuando no aplica). Decisiones de gestion: Requiere Respuesta de Primera Mano (se gestiona directamente), Requiere Asignacion por Competencia (se traslada a otra dependencia). Tipos de Examen: SABER PRO y TYT, SABER 11, OTROS SERVICIOS. Acciones de respuesta: SE ENVÍA POR HYPER SEND EMAIL (correo automatico), respuesta con adjunto PDF, envio de certificados o resultados.
+
+## Procesos confirmados activos en el sistema BPMS ICFES al 07/04/2026: 1) PQRSDF - proceso principal, el mas iniciado y mas demorado del sistema. Gestiona peticiones, quejas, reclamos, sugerencias, denuncias y felicitaciones de ciudadanos. 2) TRAMITES CONTRACTUALES - gestion de contratos de personas naturales y juridicas. Incluye distribucion de radicado, crear/ajustar solicitud, validacion y procesamiento. Variables clave: Tipo de Persona (Natural/Juridica), Celular, Ciudad/Municipio, Correo Electronico, Nombres, Cesion de contrato prorroga etc., Numero de Identificacion, Apellidos, Direccion Notificacion, Texto que Resume la Solicitud, Dependencia Supervisora. 3) FACTURACION ELECTRONICA Y CUENTAS DE COBRO - proceso de gestion financiera para contratistas. 4) PQRSDF CONTACT - variante del proceso PQRSDF para canales de contacto. 5) SOLICITUD DE VIATICOS - proceso de gestion de viaticos y comisiones. Estadisticas dashboard (07/04/2026): Radicado 156 casos, Expirado 340, Abierto 1120. Total casos historicos: 33018 cerrados. Usuario mas activo: Yulys Guerra (283 tareas). Proceso mas costoso: Sin datos. Tarea mas demorada: Solicitud de PQRSDF. Navigacion BPMS: Dashboard (/dashboard), Studio (/studio), Procesos (/processes), Gestor de Tareas (/task-manager), Sede Electronica (/e-Office), Analitica (/analytics).
+
+## Estructura de respuesta oficial PQRSDF del ICFES: Encabezado: Bogota D.C. | Saludo: Senor/a [Nombre y Apellido] [correo@ciudadano.com] | Asunto: Respuesta a la peticion: [numero radicado] | Cuerpo: Respetado/a senor/a [Apellido], Atendiendo su peticion del [fecha de radicacion], en la que solicita [resumen solicitud] le informamos que: [respuesta sustantiva]. [Informacion adicional o instrucciones]. | Firma: Para mejorar nuestros servicios le invitamos a evaluar su experiencia con la atencion recibida. Para mayor informacion puede comunicarse a nuestros canales de atencion, a traves de nuestra pagina institucional. Agradecemos la oportunidad de atenderle. Cordialmente, | Numero de radicado salida: formato ICFES/anio-numero. Canal de envio: Hyper Send Email (automatico desde el sistema). El correo se envia al campo Correo electronico registrado en el formulario de radicacion. Si se adjunta PDF de respuesta: debe firmarse digitalmente antes de adjuntar. Estado de respuesta: registrar en campo Respuesta PQRSDF y campo Comentario de Cierre con el texto de gestion realizada y responsable.
+
+## Proceso para gestion de contratos de personas naturales y juridicas en ICFES. Tareas del proceso: 1) Distribuir el radicado - primera tarea de asignacion de la solicitud. 2) Crear / Ajustar solicitud - registro y validacion de datos del contratista. 3) Validacion y procesamiento - revision de documentos y tramite contractual. Variables del formulario TRAMITES CONTRACTUALES: Tipo de Persona (Persona Natural / Persona Juridica), Celular, Ciudad / Municipio, Pais, Correo Electronico, Nombres, La solicitud tiene Cesion de contrato o prorroga etc. (Si/No), Numero de Identificacion, Apellidos, Barrio/Vereda/Corregimiento, Direccion Notificacion, Texto que Resume la Solicitud, Departamento, Dependencia Supervisora. Ejemplo real de solicitud: tipo contratacion y entrega de estudios previos. SLA: Distribuir radicado = plazo corto (horas). Contratistas de la Subdireccion Financiera. Documentos: se adjuntan en el expediente del caso. Para cuentas de cobro: formato ICFES/numero/anio.
+
+## OneDrive Soporte HyperGenIA (soportehyper@icfes.gov.co): Carpeta Manuales > Entregables Version Final ante Cliente > 4_Gestion PQRSDF > Manuales > contiene 4 documentos oficiales: 01_Recepcion_y_clasificacion_de_PQRSDF.docx (42 KB), 02_Asignacion_y_gestion_de_PQRSDF.docx (47 KB), 03_Respuesta_al_ciudadano.docx (48 KB), 04_Cierre_de_PQRSDF.docx (47 KB). Otros procesos documentados: 1_Licenciamiento Perpetuo HyperGenIA, 2_Gestion Certificados y Tramites Contractuales, 3_FE y Gestion Pagos PJ y PN, 5_Gestion Viaticos, 6_Proceso Precontractual Contratacion PJ-PN, 7_Proceso Contractual PJ-PN, 8_Supervision y Gestion Postcontractual PJ-PN, 9_Gestion Financiera, 10_Procesos Adicionales, 11_Manuales Procesos, 12_Manuales Procesos_2. Carpeta Tickets_SoporteHyper: repositorio de tickets de soporte tecnico. Carpeta Documentos_Tramites: documentos operativos. Carpeta Capacitaciones: material de entrenamiento. Acceso SharePoint: https://icfesgovco-my.sharepoint.com. Para crear ticket de soporte tecnico: ir a carpeta Tickets_SoporteHyper en OneDrive Soporte HyperGenIA.
+
+## Fuente: Tabla de variables y datos del formulario de PQR.xlsx (OneDrive Soporte HyperGenIA). Mapeo completo de campos del formulario PQRSDF con sus variables internas del sistema: Canal de Recepcion = reception_channel | Tipo de Solicitud = request_type | Tipo de Solicitante = applicant_type | Codigo DANE = dane_code | Secretarias = education_department | Codigo EK = ek_code | Tipo de Examen o Encuesta = exam_or_survey_type | Tipo de Identificacion = identification_type | Numero de identificacion = identification_number | Nombres = first_name | Apellidos = last_name | Pais = country | Departamento = state | Ciudad = city | Direccion de Correspondencia y Barrio = notification_address_and_neighborhood | Correo electronico (ciudadano) = email | Telefono Fijo = home_phone | Telefono Celular = cell_phone | Digite el texto que resumen de su solicitud = request_text | La PQRSDF es para un tercero = is_third_party_request | Tipo de Documento del Tercero = third_party_document_type | Numero de documento del tercero = third_party_document_number | Nombre Completo (tercero) = third_party_full_name | Cierre masivo = CierreMasivo | Comentarios de cierre = ComentarioCierreMasivo | Causal = causal | Tipo Sector = tipo_sector | Tramite / Convocatoria = tramite_convocatoria | Linea de Tiempo = linea_tiempo | Observaciones = observaciones_clasificacion | Requiere Asignacion por Competencia = asignacion_competencia | Dependencia (destinatario) = dependencia_destinatario | Correo Electronico (destinatario) = correo_destinatario | Nombre Completo (destinatario) = nombre_destinatario.
+
+## El Exporte de Datos PQR es una fotografia digital de todas las interacciones y decisiones del proceso PQRSDF. Se extrae en formato CSV desde el sistema para convertirla en base de datos manejable. Usos: Control y Seguimiento Integral (monitorear estado de cada solicitud), Optimizacion del Plan de Trabajo, Toma de Decisiones. Para exportar el historico de PQRSDF: 1) Ir a Analitica en BPMS. 2) Configurar rango de fechas: Fecha Inicial = 25/04/2025 (fecha de entrada en vigencia del sistema Hyper). 3) Fecha Final = fecha actual + 1 dia (para capturar todos los registros del dia). 4) Hacer clic en Ejecutar - el servidor compilara los datos. 5) Esperar unos minutos y hacer clic en Refrescar. 6) Cuando el boton Descargar este habilitado, hacer clic. 7) El archivo CSV se guarda automaticamente. Herramienta de analisis: Manual de usuario - Transformacion y Depuracion del Exported de Datos PQR (archivo en OneDrive 2026 > Manuales escritos). El sistema inicio el 25/04/2025 (fecha oficial de vigencia de HyperGenIA BPMS). Variables en el CSV exportado corresponden exactamente a las variables internas del sistema (ver tabla de variables arriba).
+
+## Fuente: 01_Recepcion_y_clasificacion_de_PQRSDF.docx (Manuales PQRSDF v2025-12-29). OBJETIVO: Garantizar que la solicitud sea tratada de manera oportuna, con informacion completa, trazabilidad de decisiones y evidencia verificable. Reduce reprocesos por mala clasificacion, asignacion incorrecta o ausencia de evidencias. PRECONDICIONES: El caso PQRSDF existe con identificador unico (radicado/consecutivo). El usuario tiene rol habilitado (clasificador, gestor, validador o cierre). La bandeja de trabajo y modulo de comentarios/documentos estan accesibles. La informacion minima del solicitante y solicitud esta disponible. EJECUCION: Abrir el caso desde la bandeja de trabajo. Leer el contenido completo de la solicitud y adjuntos. Verificar datos del solicitante (nombre, identificacion, correo, telefono). Confirmar que la solicitud corresponde a competencia del ICFES. Identificar si es duplicado de otro caso existente. Seleccionar tipo de PQRSDF (Peticion, Queja, Reclamo, Sugerencia, Denuncia, Felicitacion). Asignar causal, tramite/convocatoria y linea de tiempo. Asignar prioridad operativa segun riesgo de vencimiento y criticidad. Guardar la clasificacion y confirmar que el caso transiciono al estado esperado. Registrar en comentarios el resumen de la decision de clasificacion y criterios usados. SALIDAS: Caso con estado actualizado (clasificado, en gestion, respondido o finalizado). Registro de trazabilidad con decisiones clave. Evidencia documental asociada. Disponibilidad del caso para consulta historica y auditoria.
+
+## ETAPA 2 - ASIGNACION Y GESTION (02_Asignacion_y_gestion_de_PQRSDF.docx): Ingresar a la bandeja de tareas y ubicar el caso. Revisar la clasificacion previa y confirmar que la competencia corresponde al area responsable. Autoasignar o asignar el caso al gestor responsable validando disponibilidad. Analizar el contenido y definir plan de atencion (actividades, responsables, plazos internos). Solicitar insumos a otras areas cuando se requiera, dejando evidencia en comentarios. Consolidar la respuesta tecnica/administrativa y preparar soportes documentales (oficios, actas, anexos). Actualizar el caso con avances parciales para evitar perdida de contexto. Dejar listo el caso para la etapa de respuesta al ciudadano. ETAPA 3 - RESPUESTA AL CIUDADANO (03_Respuesta_al_ciudadano.docx): Confirmar que la respuesta esta completa y coherente con la solicitud. Verificar el numero de radicado del documento de salida y su asociacion al expediente. Preparar el mensaje de notificacion usando la plantilla institucional y completar campos obligatorios. Adjuntar el documento de respuesta y anexos en formato PDF. Enviar la notificacion por el canal establecido y registrar el radicado. Validar el resultado del envio (mensaje de confirmacion en el sistema). Si el envio falla registrar la incidencia y gestionar reenvio. ETAPA 4 - CIERRE (04_Cierre_de_PQRSDF.docx): Verificar que la respuesta fue enviada con evidencia trazable. Confirmar que el documento de respuesta esta cargado en el expediente con radicado correcto. Revisar que la clasificacion final y estado reflejen lo ejecutado. Validar que no hay tareas abiertas ni escalamiento activo. Registrar cierre con comentario final: accion ejecutada, fecha de notificacion y soporte principal. Ejecutar la accion de cierre en el sistema y confirmar transicion a estado Finalizado. Si el caso esta vencido, registrar la causa operativa del vencimiento como evidencia de trazabilidad. NOTA CRITICA: Finalizar cierra el caso de forma definitiva. Guardar solo guarda avances parciales sin cerrar el caso.
+
+PROCESO SOLICITUD DE VIATICOS: OBJETIVO: Definir la ejecucion del proceso Solicitud de viaticos para gestionar solicitudes, aprobaciones, desembolsos y legalizacion de viaticos, garantizando control presupuestal, soportes y cierre oportuno. El proceso busca disminuir riesgos de pagos sin soporte, legalizaciones incompletas y reprocesos administrativos. PRECONDICIONES: Existe una comision, desplazamiento o actividad autorizada que requiere viaticos. El solicitante y aprobador estan identificados y cuentan con rol habilitado. Se dispone de parametros de viaticos (topes, conceptos, politicas) y centros de costo. El sistema financiero y/o expediente de soporte esta disponible para registrar evidencias. EJECUCION PASO A PASO: 5) Registrar la solicitud indicando: motivo, destino, fechas, duracion y necesidades de gasto (alimentacion, transporte, alojamiento). 6) Adjuntar soportes de autorizacion (comision, agenda, invitacion) y validar que coincidan con fechas y destino. 7) Calcular el valor estimado conforme a topes y politicas internas, discriminando por concepto. 8) Enviar la solicitud a aprobacion, dejando trazabilidad del solicitante y del responsable aprobador. 9) Registrar observaciones si se requiere ajuste (cambio de fechas, valores, conceptos). SALIDAS ESPERADAS: Solicitud de viaticos registrada con calculo y soportes. Decision de aprobacion/rechazo con trazabilidad y notificacion. Desembolso y/o legalizacion registrada con soportes y cierre administrativo. Expediente listo para control interno, auditoria y reporte.
+
+PROCESO VALIDACION DE VIATICOS: OBJETIVO: Definir la ejecucion del proceso Validacion de viaticos para gestionar solicitudes, aprobaciones, desembolsos y legalizacion de viaticos, garantizando control presupuestal, soportes y cierre oportuno. EJECUCION PASO A PASO: Revisar solicitud de viaticos registrada con datos del comisionado, destino, fechas y valores. Verificar que los soportes de autorizacion coincidan con la comision aprobada. Validar topes y politicas de viaticos segun reglamento interno y centro de costo. Confirmar disponibilidad presupuestal para la solicitud. Aprobar o rechazar la solicitud con registro de trazabilidad y notificacion al solicitante. Si hay inconsistencias, devolver la solicitud con observaciones claras para correcciones. SALIDAS: Solicitud validada con aprobacion o rechazo registrado. Trazabilidad completa de la decision con responsable y fecha. Expediente disponible para desembolso o legalizacion.
+
+PROCESO LEGALIZACION DE VIATICOS: OBJETIVO: Definir la ejecucion del proceso Legalizacion de viaticos para gestionar solicitudes, aprobaciones, desembolsos y legalizacion de viaticos, garantizando control presupuestal, soportes y cierre oportuno. EJECUCION PASO A PASO: Recopilar todos los soportes originales de gastos (tiquetes, facturas, recibos de alojamiento, alimentacion, transporte). Verificar que cada gasto corresponde a los rubros aprobados en la solicitud inicial. Registrar los valores reales vs. los valores aprobados, discriminando por concepto. Adjuntar soportes digitalizados al expediente del sistema. Calcular saldos a favor del funcionario o valores a reintegrar a la entidad. Enviar la legalizacion al aprobador para revision y cierre. Registrar el cierre administrativo con trazabilidad de la decision final. SALIDAS: Legalizacion completa con soportes. Saldo calculado (a favor o en contra). Expediente cerrado administrativamente. Reporte disponible para auditoria y control fiscal.
+
+PROCESO CONTRACTUAL PJ-PN - ELABORACION DE CONTRATO: OBJETIVO: Gestionar el proceso de elaboracion, firma, perfeccionamiento y registro de contratos de personas naturales (PN) y personas juridicas (PJ) en el sistema BPMS ICFES. TAREAS DEL PROCESO: 1) Elaboracion de contrato: Revisar los estudios previos y requisitos del contrato. Elaborar el borrador del contrato con los datos del contratista (tipo persona, nombre, identificacion, ciudad, correo, telefono celular, dependencia supervisora). Validar clausulas contractuales con el supervisor. Registrar en el sistema BPMS los datos del contratista y el texto del contrato. Adjuntar documentos soporte (estudios previos, propuesta, CDP). 2) Firma y perfeccionamiento contractual: Enviar contrato al contratista para firma. Recibir contrato firmado con todos los documentos de perfeccionamiento. Verificar documentos de legalidad (polizas, afiliaciones, antecedentes). Registrar fecha de perfeccionamiento en el sistema. 3) Registro contractual: Radicar el contrato en el sistema con numero oficial. Registrar en el expediente todos los documentos del contrato. Validar que el contrato quedo correctamente registrado y disponible para supervision. VARIABLES DEL FORMULARIO TRAMITES CONTRACTUALES: Tipo de Persona (Natural/Juridica), Celular, Ciudad/Municipio, Pais, Correo Electronico, Nombres, Cesion de contrato o prorroga (Si/No), Numero de Identificacion, Apellidos, Barrio/Vereda/Corregimiento, Direccion Notificacion, Texto que Resume la Solicitud, Departamento, Dependencia Supervisora. SLA: Distribuir radicado = plazo corto (horas). Documentos se adjuntan en el expediente del caso. Para cuentas de cobro: formato ICFES/numero/anio.
+
+PROCESOS ADICIONALES DOCUMENTADOS EN ONEDRIVE (Entregables Version Final ante Cliente): Los siguientes procesos tienen manuales completos en OneDrive Soporte HyperGenIA > Manuales > Entregables Version Final ante Cliente: 1_Licenciamiento Perpetuo HyperGenIA (3 docs). 2_Gestion Certificados y Tramites Contractuales (3 docs). 3_FE y Gestion Pagos PJ y PN (3 docs). 4_Gestion PQRSDF (manuales en el sistema). 5_Gestion Viaticos: 01_Solicitud, 02_Validacion, 03_Legalizacion (ver secciones anteriores). 6_Proceso Precontractual Contratacion PJ-PN (8 docs). 
+
+═══════════════════════════════════════
+
+ESTRUCTURA COMPLETA DE ONEDRIVE - SOPORTE HYPER ICFES
+
+═══════════════════════════════════════
+
+INVENTARIO DE TODAS LAS CARPETAS RAIZ (OneDrive soportehyper@icfes.gov.co):
+
+- Archivos de chat de Microsoft Teams: 199 archivos | 2.1GB | actualizado oct 2025
+- - Archivos de Microsoft Copilot Chat: 1 archivo | oct 2025
+- - Attachments: 60 archivos | 3.2GB | oct 2025
+- - Capacitaciones: 10 archivos | 157MB | oct 2025
+- - Certificaciones en PDF: 7 archivos | 107MB | dic 2025
+- - Descargas: 44 archivos | 25MB | nov 2025
+- - Documentos: 6 archivos | 8MB | nov 2025
+- - Documentos HyperGenIA: 37 archivos | 315MB | oct 2025
+- - Documentos varios: 26 archivos | 18MB | oct 2025
+- - Documentos_Tramites: 210 archivos | 30MB | ene 2026
+- - Excel Files: 16 archivos | 6MB | ene 2026
+- - Excel Files_3: 15 archivos | 9MB | ene 2026
+- - Grabaciones: 33 archivos | 4.7GB | oct 2025
+- - Informes diarios: 5 archivos | 9.3GB | oct 2025
+- - Manuales: 3 subcarpetas | 1.7GB | nov 2025
+- - Microsoft Teams Chat Files: 79 archivos | 2GB | oct 2025
+- - Notebooks: 1 notebook | feb 2026
+- - Plantilla_Cert: 2 archivos | ene 2026
+- - Rebinbrar_Archivos: 2 archivos | mar 2026
+- - Reuniones: 2 archivos | oct 2025
+- - Soporte2026: 2 archivos | ene 2026
+- - Tickets_SporteHyper: 6 elementos | 7MB | feb 2026
+- - QueryPQRS.xlsx: 83MB | feb 2026 (EXPORTACION MASIVA DE PQR)
+- - Soporte @ icfes.gov.co: 2 archivos | oct 2025
+- - Soporte en icfes.gov.co: 2 archivos | oct 2025
+- - TRD-240 Subdireccion Financiera y Contable_VFA.xlsx | oct 2025
+- - Depenedencias.xlsx | mar 2026
+- - Generales.xlsx | oct 2025
+- - Libro1.xlsx: 65MB | feb 2026
+- 
+- CARPETA: DOCUMENTOS HYPERGENIAL (37 elementos)
+- Contiene documentos de trabajo operativos del equipo HyperGenIA:
+- SUBCARPETAS:
+- - Comprobante de respuestas correo (4 docs): Evidencias de respuestas enviadas por correo
+- - Correos radicados de respuesta (6 docs): Correos radicados de respuesta formal
+- - Creacion Nuevos Usuarios (1 doc): Proceso de creacion de nuevos usuarios
+- - Cuentas de cobro 202602 (2 docs): Cuentas de cobro febrero 2026
+- - Documentos de prueba (3 docs): Pruebas del sistema
+- - Documentos EROR (5 docs): Documentacion de errores encontrados
+- - Enlaces documentales (15 docs): Links y referencias documentales
+- - Entrenamiento Programacion Giovany (1 doc): Material de entrenamiento
+- - Fallas (3 docs): Registro de fallas del sistema
+- - Modificacion usuarios Maria Johanna (1 doc): Solicitudes de modificacion de usuarios
+- - Plantillas (5 docs): Plantillas operativas
+- - Tipificacion UAC (1 doc): Tipificacion de casos UAC (Unidad de Atencion al Ciudadano)
+- - TRD 2019 SGDEA (21 docs): Tabla de Retencion Documental 2019
+- - TRD 2023 SGDEA (25 docs): Tabla de Retencion Documental 2023
+- - UAC - SI (1 doc): Informacion UAC - Sistema de Informacion
+- - Videos (3 docs): Videos operativos
+- - Notas_Soporte_N1 (8 docs OneNote): CUADERNOS ONENOTE DEL EQUIPO
+- 
+- ARCHIVOS IMPORTANTES EN DOCUMENTOS HYPERGENIAL:
+- - Avance notificacion procesos.txt: Lista de procesos y estado de implementacion de notificaciones:
+- RADICACION DE SALIDA (Bibi), RADICACION DE ENTRADA (Bibi), ANULACION DE RADICADOS (Bibi),
+- CORRESPONDENCIA INTERNA (Bibi, solucionado), TRAMITES CONTRACTUALES (Bibi, solucionado),
+- GESTION CONTRACTUAL-PRECONTRACTUAL (AnderG), FACTURACION ELECTRONICA INGRESOS (Bibi),
+- SOLICITUD DE VIATICOS (Ander, No desplegado), PQRSDF (Bibi), PQRSDF CONTACT (No se puede),
+- GESTION CONTRACTUAL-TERMINACION O LIQUIDACION (AnderG, no desplegado),
+- GESTION CONTRACTUAL-CESION O SUSPENSION, GESTION CONTRACTUAL-EJECUCION DEL CONTRATO,
+- CERTIFICADOS CONTRACTUALES MANUALES, CERTIFICACIONES CONTRACTUALES AUTOMATICAS,
+- PLANEACION Y PROGRAMACION PRESUPUESTAL, GENERACION DEL CDP, SOLICITUD DE CDP,
+- REVISION Y APROBACION DE CDP, CONTRATACION (SECOP),
+- FACTURACION ELECTRONICA Y CUENTAS DE COBRO (AnderG)
+- 
+- - Plantilla_notificaciones_correo.txt: Plantillas de notificacion automatica por correo:
+- DESTINATARIO: {responsibleUser.email}
+- AL_INICIAR: “Cordial saludo, se le informa que ha recibido la tarea ___. Para gestionar esta solicitud pulsa aqui y accede a la tarea. Mensaje automatico.”
+- PROXIMA_A_VENCER: “…la tarea ___ se encuentra proxima a vencer.”
+- VENCIDA: “…la tarea ___ se encuentra vencida.”
+- URL tarea: {taskURL}
+- 
+- - NotasAnder.txt (pendientes de Anderson/AnderG):
+- - Poner numero de radicados en vista previa en bandeja y fecha de inicio
+- - Que es GDA? / Que es el Morec?
+- - Que las PQRS fluyan contractualmente
+- - Que son los bugs? / Que son los instrumentos?
+- Pendientes 19-10-2025: revisar correo, revisar chats Teams
+- 
+- - NotasGiovany29122025.txt (notas Giovany - dic 2025):
+- - Juan Felipe: Quitarle a todos el permiso excepto UAC y ED y DR
+- - Cargar plantillas faltantes y eliminar caso GLPI de plantillas
+- - Fray: No deberia haber un doc de CA para la gente?
+- - Daniel: Error radicado de entrada, bandeja AnderG
+- - Convenios de Cooperacion Internacional
+- 
+- - Calificacion_Anderson_Giovany.txt: Calificaciones/evaluaciones del equipo
+- - Soporte_HyperGenIA_cambios.xlsx: Historial de cambios del sistema
+- - Creacion_Modificacion_Usuarios.xlsx: Gestion de usuarios (creacion y modificacion)
+- - document-types-creation-format.xlsx: Tipos de documentos y formatos de creacion
+- - Elementos duplicados.xlsx: 3.3MB - elementos duplicados encontrados en el sistema
+- - Personas a las que debemos notificar.xlsx: Lista de contactos para notificaciones
+- - Capacitacion_PQRS_borrador.pptx: Presentacion de capacitacion PQRSDF (borrador)
+- - Mensaje en ausencia.docx: Mensaje de ausencia oficina
+- - Sugerencias - Errores.docx: 379KB - sugerencias y errores reportados por usuarios
+- 
+- CUADERNOS ONENOTE DEL EQUIPO (Notas_Soporte_N1)
+- Ubicacion: OneDrive/Documentos HyperGenIA/Notas_Soporte_N1/
+- Archivos encontrados:
+- - [Principal.one](http://Principal.one) (1.2MB, actualizado feb 2026): Cuaderno principal del equipo de soporte N1
+- - [Soluciones.one](http://Soluciones.one) (3MB, actualizado feb 2026): Soluciones documentadas a problemas frecuentes
+- - [Capacitaciones.one](http://Capacitaciones.one) (574KB, actualizado feb 2026): Material de capacitaciones
+- - Personal [AnderG.one](http://AnderG.one) (1.2MB, feb 2026): Notas personales del agente AnderG (Anderson)
+- - Personal Juan [Felipe.one](http://Felipe.one) (4MB, feb 2026): Notas personales del agente Juan Felipe (MAYOR)
+- - Personal [Luis.one](http://Luis.one) (47KB, feb 2026): Notas personales del agente Luis
+- - Open Notebook.onetoc2: Tabla de contenidos del cuaderno
+- - OneNote_RecycleBin: Papelera de reciclaje OneNote (2.8MB)
+- 
+- NOTA: Estos archivos OneNote contienen el conocimiento acumulado del equipo de Soporte N1.
+- El archivo mas grande es Personal Juan [Felipe.one](http://Felipe.one) (4MB) con mayor cantidad de informacion.
+- [Soluciones.one](http://Soluciones.one) (3MB) contiene las soluciones documentadas a incidencias.
+- 
+- TICKETS Y SOPORTE - ESTRUCTURA Y MINUTAS
+- ═══════════════════════════════════════
+- 
+- CARPETA: Tickets_SporteHyper
+- Contiene las minutas semanales de soporte y chats exportados de Teams:
+- 
+- SEMANA 3 (Mar 13-20, 2026):
+- - Minuta_Soporte_v8_Actualizada.xlsx (46KB): Minuta de soporte version 8
+- - Chats/Chats_Juan_13mar/: Chats de Juan Felipe con usuarios semana 13 mar
+- - Chats/Chats_Luis_13mar/: Chats de Luis con usuarios semana 13 mar
+- - Chats/Correos 202603-Sem3.CSV (1.8MB): Exportacion de correos semana 3
+- 
+- SEMANA 4 (Mar 20-27, 2026):
+- - Minuta_Soporte_Actualizada_v9.xlsx (61KB): Minuta de soporte version 9
+- - Chats/Chats_Juan_20mar/: Chats de Juan Felipe semana 20 mar
+- - Chats/Chats_Luis_20mar/: Chats de Luis semana 20 mar
+- - Chats/Correos 202603-Sem4.CSV (1.2MB): Exportacion de correos semana 4
+- 
+- SEMANA 5 (Mar 27 - Abr 7, 2026) - LA MAS RECIENTE:
+- - Minuta_Soporte_Actualizada_v10.xlsx (70KB): Minuta de soporte version 10 (ACTUAL)
+- - Chats/Chats_Juan_27mar/: Chats de Juan Felipe con usuarios:
+- Usuarios atendidos: Ana Isabel Londono Sanchez, Leady Jhoana Morales Hernandez,
+- Karen Daniela Rincon Rangel, Daysi Dayanne Reyes Morales, Jesus Daniel Murayari,
+- Viviam Juranny Rivas Cardenas, Jessika Alieth Zarabanda Payan, Jhonathan Forero,
+- Yulys Guerra, July Paola Rodriguez Oyola, Valentina Ballen, Carlos Alberto Trilleras Lasso,
+- Daniela Arago Cardona, Deissy Lizeth Rodriguez Gomez, Diana Lorena Rodriguez Bejarano
+- (Total 75 mensajes, rango: 27 mar - 4 abr 2026)
+- - Chats/Chats_Luis_27mar/: Chats de Luis con usuarios
+- - Chats/Correos 202603-Sem5.CSV (1.2MB): Exportacion de correos semana 5
+- 
+- ARCHIVO RAIZ SOPORTE: Instructivo_Minuta_Soporte.docx (27KB, mar 2026)
+- MINUTA ACTUAL: Minuta_Soporte_Actualizada_v9.xlsx (53KB, mar 2026)
+- 
+- CARPETA: Soporte2026
+- - Instructivo_Minuta_Soporte.docx (27KB): Instructivo para llenar la minuta de soporte
+- - Soporte2026_(Minuta).xlsx (30KB, feb 2026): Minuta de soporte 2026
+- 
+- CARPETA: Soporte @ [icfes.gov.co](http://icfes.gov.co) y Soporte en icfes.gov.co (oct 2025):
+- Carpetas de soporte inicial al inicio del proyecto
+- 
+- EXPORTACION PQR - QueryPQRS.xlsx
+- ═══════════════════════════════════════
+- Archivo: QueryPQRS.xlsx
+- Tamano: 83MB (archivo masivo de exportacion)
+- Fecha: Febrero 2026
+- Ubicacion: Raiz de OneDrive (soportehyper@icfes.gov.co)
+- Descripcion: Exportacion masiva de todos los casos PQRSDF del sistema BPMS.
+- Este archivo contiene el historico completo de PQRSDF procesadas en el sistema HyperGenIA.
+- Con 83MB es el archivo mas grande de exportacion de datos del sistema.
+- 
+- OTROS ARCHIVOS DE DATOS EN RAIZ:
+- - Libro1.xlsx (65MB, feb 2026): Posiblemente otra exportacion grande de datos
+- - Depenedencias.xlsx (mar 2026): Mapa de dependencias del ICFES
+- - DICIEMBRE 17.xlsx (mar 2026): Datos de diciembre 17
+- - Generales.xlsx (oct 2025): Datos generales
+- - meetingAttendanceList.csv.xlsx (mar 2026): Lista asistencia capacitacion HyperG Area Financiera (19-mar-2026)
+- - (HyperG-Capacitacion)_Hyper primeros pasos Area financiera - Informe de asistencia 3-19-26.csv.xlsx: Informe asistencia capacitacion
+- 
+- CARPETA: Documentos_Tramites (210 archivos, 30MB, ene 2026)
+- Esta es la carpeta MAS GRANDE en terminos de cantidad de archivos (210 docs).
+- Contiene documentos relacionados con tramites procesados en el sistema.
+- 
+- CARPETA: Excel Files (16 archivos, 6MB, ene 2026)
+- CARPETA: Excel Files_3 (15 archivos, 9MB, ene 2026)
+- Archivos Excel de reportes y datos del sistema.
+- 
+- ARCHIVOS DE CAPACITACION Y GRABACIONES:
+- - Capacitaciones/ (10 archivos, 157MB): Material de capacitaciones
+- - Grabaciones/ (33 archivos, 4.7GB): Grabaciones de sesiones de trabajo y capacitacion
+- - Informes diarios/ (5 archivos, 9.3GB): Informes diarios en video/audio
+- - Reuniones/ (2 archivos, 4MB): Grabaciones de reuniones
+- - Microsoft Teams Chat Files/ (79 archivos, 2GB): Archivos compartidos en chats de Teams
+- - Archivos de chat de Microsoft Teams/ (199 archivos, 2.1GB): Chats de Teams exportados
+- 
+- CERTIFICACIONES:
+- - Certificaciones en PDF/ (7 archivos, 107MB, dic 2025): Certificaciones en PDF
+- - Plantilla_Cert/ (2 archivos, ene 2026): Plantillas de certificaciones
+- 
+- ARCHIVOS DE MICROSOFT 365 COPILOT:
+- - Archivos de Microsoft Copilot Chat/ (1 archivo): Archivos de Copilot Chat
+- 
+- REUNIONES IMPORTANTES:
+- - Meeting with David Ortiz Serna-20260105_111045-Meeting Recording.mp4 (114MB, ene 2026):
+- Grabacion de reunion con David Ortiz Serna del 5 de enero 2026
+- - 2026-03-10 11-22-13 - Trim.mp4 (18MB): Video recortado 10 mar 2026
+- - WhatsApp Video 2026-03-31 at 12.05.59 PM.mp4 (17MB): Video WhatsApp 31 mar
+- 
+- REPOSITORIO DTI - MANUALES OFICIALES HYPERGENIAL
+- ═══════════════════════════════════════
+- Ubicacion: OneDrive/Manuales/Respositorio DTI/HyperGenIA/
+- Fecha de carga: Febrero 2026
+- 
+- MANUALES OFICIALES PDF (ENTREGADOS AL ICFES):
+- - ICFES_CCD_Manual de Usuario HyperGenIA.pdf (10.2MB, jul 2025): MANUAL DE USUARIO COMPLETO
+- Documento oficial de usuario del sistema HyperGenIA entregado al ICFES
+- - ICFES_CCD_Manual Tecnico HyperGenIA.pdf (5.3MB, jul 2025): MANUAL TECNICO COMPLETO
+- Documento tecnico del sistema HyperGenIA entregado al ICFES
+- 
+- ARCHIVOS ZIP POR PROCESO EN DTI:
+- - 1_HyperG_Manual Usuario y Manual Admin.zip (13.7MB): Manual usuario y administrador completo
+- - 2_Gest Certif y Tramit Contract.zip (111KB): Manuales Gestion Certificados y Tramites Contractuales
+- - 3_Gest Pagos CC PN y FE PJ.zip (148KB): Manuales FE y Gestion Pagos
+- - 4_Gest PQRSDF/ (carpeta): 20260213_Manual Exporte UAC.rar (4.7MB) + 4_Gest PQRSDF.zip
+- - 5_Gest Viaticos.zip (108KB): Manuales Gestion de Viaticos
+- - 6_Gest Precontract PN-PJ.zip (111KB): Manuales Proceso Precontractual
+- - 7_Gest Contract PN-PJ.zip (111KB): Manuales Proceso Contractual
+- - 8_Gest Supervis y Postcontract PN-PJ.zip (111KB): Manuales Supervision y Postcontractual
+- - 9_Gest Financiera.zip (110KB): Manuales Gestion Financiera
+- - HyperGenIA_Grabaciones Capacitaciones.xlsx (24KB): Inventario de grabaciones de capacitacion
+- - Manuales.zip (758KB, feb 2026): Coleccion de todos los manuales
+- 
+- DTI/HyperGenIA/Manuales (consolidado - todos los manuales de procesos):
+- Todos los documentos Word de todos los procesos del sistema (mismos que en Entregables)
+- 
+- NOTA: El archivo 20260213_Manual Exporte UAC.rar (4.7MB) contiene el manual de exportacion
+- de datos PQR para el equipo UAC (Unidad de Atencion al Ciudadano), con fecha 13 feb 2026.
+- 
+- MANUALES DE PROCESOS - CATALOGOS COMPLETOS POR PROCESO
+- ═══════════════════════════════════════
+- 
+- PROCESO 2: GESTION CERTIFICADOS Y TRAMITES CONTRACTUALES
+- Carpeta: Entregables Version Final/2_Gestion Certificados y Tramites Contractuales/Manuales/
+- - 01_Gestión_de_certificados_contractuales.docx (37KB, dic 2025): Gestion de certificados contractuales
+- - 02_Validación_de_requisitos_contractuales.docx (37KB, dic 2025): Validacion de requisitos contractuales
+- - 03_Emisión_de_certificaciones_contractuales.docx (37KB, dic 2025): Emision de certificaciones
+- 
+- PROCESO 3: FE Y GESTION PAGOS PJ Y PN
+- Carpeta: Entregables Version Final/3_FE y Gestion Pagos PJ y PN/Manuales/
+- - 01_Recepción_de_facturas_electrónicas.docx (37KB, dic 2025): Recepcion de facturas electronicas
+- - 02_Validación_de_facturación.docx (37KB, dic 2025): Validacion de facturacion
+- - 03_Gestión_de_pagos.docx (37KB, dic 2025): Gestion de pagos
+- - 04_Cierre_financiero_del_trámite.docx (37KB, dic 2025): Cierre financiero del tramite
+- 
+- PROCESO 6: PROCESO PRECONTRACTUAL CONTRATACION PJ-PN
+- Carpeta: Entregables Version Final/6_Proceso Precontractual Contratacion PJ-PN/Manuales/
+- - 01_Identificación_de_necesidad_contractual.docx (37KB, dic 2025): Identificacion de necesidad
+- - 02_Revisión_precontractual.docx (37KB, dic 2025): Revision precontractual
+- - 03_Aprobación_de_inicio_de_proceso.docx (37KB, dic 2025): Aprobacion de inicio de proceso
+- 
+- PROCESO 8: SUPERVISION Y GESTION POSTCONTRACTUAL PJ-PN
+- Carpeta: Entregables Version Final/8_Supervision y Gestion Postcontractual PJ-PN/Manuales/
+- - 01_Seguimiento_contractual.docx (37KB, dic 2025): Seguimiento contractual
+- - 02_Gestión_de_modificaciones_contractuales.docx (37KB, dic 2025): Gestion de modificaciones contractuales
+- - 03_Cierre_contractual.docx (37KB, dic 2025): Cierre contractual
+- 
+- PROCESO 9: GESTION FINANCIERA
+- Carpeta: Entregables Version Final/9_Gestion Financiera/Manuales/
+- - 01_Control_presupuestal.docx (37KB, dic 2025): Control presupuestal
+- - 02_Ejecución_financiera.docx (37KB, dic 2025): Ejecucion financiera
+- - 03_Conciliación_financiera.docx (37KB, dic 2025): Conciliacion financiera
+- 
+- PROCESO 10: PROCESOS ADICIONALES (Radicacion y Correspondencia)
+- Carpeta: Entregables Version Final/10_Procesos Adicionales/
+- Subprocesos (cada uno con 7 subcarpetas de fases: 0_Informe, 1_Descubrimiento, 2_Linea Base, 3_Diseno, 4_Implementacion, 5_Pruebas, 6_Despliegue):
+- - 1_Radicacion Entrada (223KB): Proceso de radicacion de entrada de documentos
+- - 2_Radicacion Salida (223KB): Proceso de radicacion de salida de documentos
+- - 3_Anulacion Radicados (223KB): Proceso de anulacion de radicados
+- - 4_Correspondencia Interna (223KB): Proceso de correspondencia interna
+- - 5_FE (Ingresos) (223KB): Proceso de Facturacion Electronica de ingresos
+- 
+- PROCESO 1: LICENCIAMIENTO PERPETUO HYPERGENIAL
+- Carpeta: Entregables Version Final/1_Licenciamiento Perpetuo HyperGenIA/
+- - 1_Informe Instalacion (1MB): Informe de instalacion del sistema
+- - 2_Doc Soporte Tecnico (254KB): Documentacion de soporte tecnico
+- - 3_Manuales Tecnicos y de Usuario (25MB!): Manuales tecnicos y de usuario completos
+- 
+- VIDEOS DE CAPACITACION - INVENTARIO COMPLETO
+- ═══════════════════════════════════════
+- Ubicacion: OneDrive/Manuales/2026/Videos Hyper/
+- Inventario generado: 07/04/2026 15:40 (hoy)
+- Total carpeta: 1.6GB de videos
+- 
+- PROCESO FE Y CUENTAS DE COBRO (Videos):
+- - Como gestionar una Facturacion Electronica (Enlaces Documentales-Supervisores).mp4
+- - Como radicar cuenta de cobro, facturacion electronica y otros tramites contractuales.mp4
+- - Como radicar cuenta de cobro, facturacion electronica y otros tramites contractuales_Subtitulado.mp4
+- - Gestionar una Cuenta de cobro Siendo enlace documental.mp4
+- - Gestionar una Cuenta de cobro Siendo enlace documental_Subtitulado.mp4
+- 
+- PROCESO PQR (Videos):
+- - Como crear una PQR.mp4
+- - Como gestionar una PQR (Escalado tarea 5).mp4
+- - Como gestionar y Cerrar una PQR (Enlace Documental-Escalado tarea 4).mp4
+- - Creacion de una PQR.mp4
+- - Envio y comprobacion de respuestas (Envio y comprobacion de Correos electronicos).mp4
+- [Posiblemente mas videos de PQR]
+- 
+- VIDEOS GENERALES:
+- - Buscar procesos (Radicados, IDs, etc).mp4
+- - Como buscar por Datos del Formulario.mp4
+- - Como Ver Lo Que Tengo En Mi Bandeja en Hyper (Que Debo Gestionar).mp4
+- 
+- OTROS VIDEOS RAIZ:
+- - Etiqueta digital.mp4
+- - Solucion Problema Cuenta de Cobro Portal ICFES.mp4
+- - Videos_Cortos_Capacitacion_Hyper.zip (coleccion comprimida de videos cortos)
+- 
+- MANUALES EN VIDEO - ACCESO:
+- Archivo acceso directo: “Manuales en Video - Acceso directo.lnk”
+- Carpetas principales: Proceso FE o CC / Proceso PQR / Videos Generales
+- 
+- CATALOGO COMPLETO - 11_MANUALES PROCESOS (40 documentos)
+- ═══════════════════════════════════════
+- Carpeta: Manuales/Entregables Version Final/11_Manuales Procesos/
+- Todos los documentos son 37KB, creados diciembre 2025.
+- 
+- GESTION PQRSDF (docs 01-14):
+- 01_Creacion_-_Registro_de_PQRSDF.docx
+- 02_Clasificacion_de_PQRSDF.docx
+- 03_Tipificacion_de_PQRSDF.docx
+- 04_Asignacion_de_PQRSDF.docx
+- 05_Reasignacion_de_PQRSDF.docx
+- 06_Cancelacion_de_PQRSDF.docx
+- 07_Gestion_de_PQRSDF_(atencion_del_caso).docx
+- 08_Escalamiento_de_PQRSDF.docx
+- 09_Respuesta_al_ciudadano.docx
+- 10_Cierre_de_PQRSDF.docx
+- 11_Reapertura_de_PQRSDF.docx
+- 12_Consulta_y_trazabilidad_de_PQRSDF.docx
+- 13_Gestion_de_PQRS_vencidas.docx
+- 14_Gestion_de_PQRS_sin_informacion_suficiente.docx
+- 
+- GESTION DOCUMENTAL (docs 15-24):
+- 15_Radicacion_de_documentos.docx
+- 16_Cargue_de_documentos_al_expediente.docx
+- 17_Generacion_de_numero_de_radicado.docx
+- 18_Gestion_de_documentos_anexos.docx
+- 19_Aplicacion_de_etiqueta_-_codigo_de_barras.docx
+- 20_Firma_digital_de_documentos.docx
+- 21_Validacion_de_documentos_firmados.docx
+- 22_Asociacion_documento-PQRS.docx
+- 23_Descarga_de_documentos.docx
+- 24_Visualizacion_de_historial_documental.docx
+- 
+- COMUNICACIONES Y NOTIFICACIONES (docs 25-29):
+- 25_Envio_de_correo_de_respuesta_al_ciudadano.docx
+- 26_Validacion_de_envio_de_correo.docx
+- 27_Registro_de_evidencia_de_notificacion.docx
+- 28_Reenvio_de_comunicaciones.docx
+- 29_Comunicacion_interna_entre_dependencias.docx
+- 
+- GESTION DE CASOS Y BANDEJAS (docs 30-40):
+- 30_Asignacion_manual_de_casos.docx
+- 31_Asignacion_automatica_de_casos.docx
+- 32_Cambio_de_responsable.docx
+- 33_Control_de_bandejas_de_trabajo.docx
+- 34_Gestion_de_tareas_pendientes.docx
+- 35_Priorizacion_de_casos.docx
+- 36_Consulta_de_estados_del_proceso.docx
+- 37_Seguimiento_por_trazabilidad.docx
+- 38_Consulta_de_historial_del_caso.docx
+- 39_Verificacion_de_cumplimiento_de_tiempos.docx
+- 40_Identificacion_de_casos_vencidos.docx
+- 
+- CATALOGO COMPLETO - 12_MANUALES PROCESOS_2 (47 documentos)
+- ═══════════════════════════════════════
+- Carpeta: Manuales/Entregables Version Final/12_Manuales Procesos_2/
+- Todos los documentos son 37KB, creados diciembre 2025.
+- 
+- FE, CUENTAS DE COBRO Y TRAMITES FINANCIEROS (docs 01-16):
+- 01_Clasificacion_inicial_de_PQRS.docx
+- 02_Cancelacion_de_radicados_improcedentes.docx
+- 03_Validacion_de_tipo_documental_y_canal_de_entrada.docx
+- 04_Recepcion_de_cuenta_de_cobro_o_factura_electronica.docx
+- 05_Validacion_de_requisitos_de_facturacion.docx
+- 06_Asignacion_a_enlace_documental.docx
+- 07_Validacion_por_supervisor_de_contrato.docx
+- 08_Devolucion_de_documentos_por_inconsistencias.docx
+- 09_Carga_de_soportes_complementarios.docx
+- 10_Aprobacion_para_pago.docx
+- 11_Gestion_del_pago.docx
+- 12_Cierre_administrativo_del_tramite_financiero.docx
+- 13_Radicacion_documental_formal.docx
+- 14_Asociacion_documental_al_expediente.docx
+- 15_Validacion_documental_previa_al_archivo.docx
+- 16_Archivo_y_cierre_documental.docx
+- 
+- ESCALAMIENTO Y GESTION PQRS (docs 17-21):
+- 17_Escalamiento_de_PQRS_a_dependencia_competente.docx
+- 18_Gestion_por_dependencia_responsable.docx
+- 19_Solicitud_de_informacion_adicional.docx
+- 20_Respuesta_directa_al_ciudadano.docx
+- 21_Cierre_formal_de_PQRS.docx
+- 
+- ASIGNACION Y BANDEJAS (docs 22-25):
+- 22_Asignacion_manual_de_casos.docx
+- 23_Reasignacion_de_casos.docx
+- 24_Gestion_de_bandejas_o…(pendiente)
+- 25_(siguiente)
+- 
+- NOTIFICACIONES Y COMUNICACIONES (docs 26-28):
+- 26_Gestion_de_notificaciones_automaticas.docx
+- 27_Comunicacion_interna_por_comentarios.docx
+- 28_Gestion_de_notificaciones_diferidas.docx
+- 
+- ANULACIONES (docs 29-31):
+- 29_Solicitud_de_anulacion.docx
+- 30_Validacion_de_anulacion.docx
+- 31_Ejecucion_de_anulacion.docx
+- 
+- ROLES Y PERMISOS (docs 32-34):
+- 32_Asignacion_de_roles_operativos.docx
+- 33_Control_de_permisos_por_rol.docx
+- 34_Escalamiento_funcional.docx
+- 
+- PLANTILLAS (docs 35-37):
+- 35_Administracion_de_plantillas.docx
+- 36_Uso_de_plantillas_de_respuesta.docx
+- 37_Control_de_versiones_de_plantillas.docx
+- 
+- MEJORAS Y CAPACITACION (docs 38-44):
+- 38_Registro_de_solicitudes_de_mejora.docx
+- 39_Priorizacion_de_mejoras.docx
+- 40_Implementacion_de_mejoras.docx
+- 41_Socializacion_de_cambios.docx
+- 42_Capacitacion_funcional.docx
+- 43_Soporte_operativo_en_vivo.docx
+- 44_Documentacion_de_buenas_practicas.docx
+- 
+- TRAZABILIDAD Y AUDITORIA (docs 45-47):
+- 45_Registro_de_trazabilidad.docx
+- 46_Consulta_historica_de_casos.docx
+- 47_Auditoria_de_procesos.docx20267_Proceso Contractual PJ-PN: 01_Elaboracion, 02_Firma y
+- 
+- TABLAS DE RETENCION DOCUMENTAL (TRD) - ICFES
+
+CONTRATOS ICFES - BASE DE DATOS HISTORICA (Excel Files + Excel Files_3)
+
+Total: 31 Excel con contratos 2002-2025. Excel Files: contratos 2002-2022 (16 archivos). Excel Files_3: contratos 2023-2025 (15 archivos, hasta 1MB cada uno). Contratos 2025 son los mas voluminosos.
+
+DOCUMENTOS_TRAMITES (210 archivos): Certificaciones de contratos generadas por el sistema. Patron: Certificacion_ICFES-NNN-AAAA.docx + PDF. Aprox 105 tramites documentados.
+
+CORREOS DE SOPORTE (Tickets_SporteHyper): CSVs de correos por semana. Columnas: Asunto|Cuerpo|De|Para|CC. Semana 5 tiene caso ejemplo radicado 2025-110-0029333-4. Agentes: Juan Felipe y Luis atienden Teams.
+
+RESUMEN EQUIPO: Agentes N1: Juan Felipe, Luis, AnderG, Giovany, Bibi. HyperGenIA: soportehyper@icfes.gov.co, David Ortiz Serna, Erlizeth, Daniel Gomez, Johanna Velasquez ICFES.
+
+ESTADO PROCESOS: ACTIVOS: Radicacion E/S, Anulacion, Correspondencia, Tramites Contractuales, FE, PQRSDF, Gestion Contractual Precontractual. SIN DESPLEGAR: Viaticos, Terminacion/Liquidacion, Cesion, Ejecucion, CDP, SECOP. NO IMPLEMENTABLE: PQRSDF CONTACT.
+
+RESUMEN SESION 07/04/2026: Fuentes exploradas: 15 carpetas/sistemas distintos. 500+ archivos 
+
+CAPACITACIONES - MANUALES Y VIDEOS DE USUARIOS
+
+Carpeta: OneDrive/Capacitaciones/ (10 archivos, 157MB)
+
+Subcarpetas: Borradores Anderson Giovany / Estilos y paletas de colores / PDFs definitivos Ander / PDFs Juan Fe
+
+PDFs definitivos Ander (5 PDFs): GENERALIDADES.pdf (463KB) | V2 CERTIFICADOS CONTRACTUALES MANUALES.pdf (476KB) | V2 Radicacion de entrada.pdf (406KB) | V2 Radicacion de salida.pdf (343KB) | V3 Empecemos.pdf (571KB)
+
+PDFs Juan Felipe (6 PDFs): Manual usuario Como Avanzar o Reasignar proceso.pdf (913KB) | Manual usuario Como entrar a HyperGenIA.pdf (487KB) | Manual usuario creacion PQRSDF medios y pasos (7.1MB!) | Manual usuario Como cambiar contrasena.pdf (713KB) | Manual usuario Como Cargar Firma Virtual.pdf (779KB) | Manual usuario Como crear radicado.pdf (4.3MB)
+
+VIDEOS DE CAPACITACION (archivos independientes en Capacitaciones/): Automatizacion-Reporte-Financiero.mp4 (116MB) | Borrador como buscar procesos.docx (474KB) | Como entrar a HyperGenIA.docx (717KB) | Manual creacion radicado.docx (6.8MB) | Manual creacion PQRSDF medios y pasos.docx (11.4MB)
+
+PROCESOS CON VIDEO (Capacitacion_videos_Daniel.txt): Correspondencia Interna | Radicacion de Salida | Radicacion de Entrada | PQRS | Certificados Contractuales Manuales | Facturacion Electronica y Cuentas de Cobro | Anulacion de Radicados | Certificaciones Contractuales Automaticas | Facturacion Electronica (Ingresos) | Ejecucion del Contrato | Modificaciones | Precontractual | PQRS CONTACT | TEST EMAIL | Tramites Contractuales
+
+CUADERNO ONENOTE BACKUP (Documentos/Block de notas de OneNote/Copia1 20260106/):
+
+Version mas reciente encontrada! [Principal.one](http://Principal.one) (1.1MB, 30 mar 2026), [Soluciones.one](http://Soluciones.one) (3.3MB, feb 2026), Personal Juan [Felipe.one](http://Felipe.one) (1.7MB, 26 mar 2026), Personal [AnderG.one](http://AnderG.one) (929KB, 6 ene 2026), [Capacitaciones.one](http://Capacitaciones.one) (83KB).
+
+NOTA: El [Principal.one](http://Principal.one) del 30 mar 2026 es el MAS ACTUALIZADO de todas las copias encontradas.
+
+DOCUMENTOS/: Nueva manera de filtrar.docx (745KB, ene 2026) - instrucciones de filtrado. Teoria de habilidades activas pese a estar deshabilitados.docx (464KB, ene 2026) - comportamiento del sistema con habilidades. Iniciar procesos.xlsx (9KB, feb 2026) - plantilla para iniciar procesos.en 50+ carpetas. 8 cuadernos OneNote. 87 manuales de procesos. 31 Excel de contratos. 31 archivos Excel datos contratos. 1.6GB videos capacitacion. 83MB exportacion PQR. Bloques Notion al finalizar: 500+.
